@@ -1,0 +1,63 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fondo y centrado */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6f9;
+  color: #333;
+}
+
+/* Títulos */
+h1, h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Enlace */
+a {
+  display: inline-block;
+  text-decoration: none;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+a:hover {
+  background: #0056b3;
+}
+
+/* Botón */
+button {
+  background: #db4437; /* rojo estilo Google */
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Mensajes */
+#mensaje {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
