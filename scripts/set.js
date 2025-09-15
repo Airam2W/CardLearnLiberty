@@ -4,6 +4,10 @@
     const auth = getAuth();
     const db = getFirestore();
 
+    document.getElementById("back-menu").addEventListener("click", () => {
+    window.location.href = "menu.html";
+  });
+
     async function loadSets() {
       const user = auth.currentUser;
       if (!user) return alert("Debes iniciar sesión");

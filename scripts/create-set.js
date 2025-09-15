@@ -4,6 +4,10 @@ import { getFirestore, collection, addDoc } from "https://www.gstatic.com/fireba
 const auth = getAuth();
 const db = getFirestore();
 
+document.getElementById("back-menu").addEventListener("click", () => {
+    window.location.href = "menu.html";
+  });
+
 document.addEventListener("DOMContentLoaded", () => {
   const cardsContainer = document.getElementById("cards-container");
   const addCardBtn = document.getElementById("add-card");
