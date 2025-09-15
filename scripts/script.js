@@ -21,3 +21,13 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const db = getFirestore(app);
+
+  // Verificar si hay usuario logueado
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // Si hay sesión activa → redirigir a menu.html
+    window.location.href = "../pages/menu.html";
+  } else {
+    console.log("No hay usuario activo");
+  }
+});
