@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/cards.css">
-    <title>My Cards</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/cards.css">
+  <title>Conjunto</title>
 </head>
 <body>
-    <h2>Mis Conjuntos</h2>
-    <ul id="sets-list"></ul>
-
-    <div id="card" style="border:1px solid black; padding:20px; margin-top:20px; cursor:pointer;">
-    Selecciona un conjunto para ver cartas
-    </div>
+  <h2 id="set-title">Conjunto</h2>
+  <div id="card" style="border:1px solid black; padding:20px; margin:20px; cursor:pointer; text-align:center;">
+    Cargando cartas...
+  </div>
+  <button id="next-card" style="margin-top:10px;">Siguiente carta</button>
     <script src="../scripts/cards.js"></script>
 </body>
 </html>

@@ -1,38 +1,60 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
-import { getFirestore, doc, collection, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
 const auth = getAuth();
 const db = getFirestore();
 
-document.getElementById("save-set").addEventListener("click", async () => {
-  const user = auth.currentUser;
-  if (!user) return alert("Debes iniciar sesión");
+document.addEventListener("DOMContentLoaded", () => {
+  const cardsContainer = document.getElementById("cards-container");
+  const addCardBtn = document.getElementById("add-card");
+  const saveBtn = document.getElementById("save-set");
 
-  const setName = document.getElementById("set-name").value;
+  // 🔹 Crear más inputs de cartas
+  addCardBtn.addEventListener("click", () => {
+    const div = document.createElement("div");
+    div.classList.add("card-input");
+    div.innerHTML = `
+      <input class="front" placeholder="Palabra frente">
+      <input class="back" placeholder="Palabra atrás">
+    `;
+    cardsContainer.appendChild(div);
+  });
 
-  try {
-    // Crear un conjunto vacío
-    const setRef = await addDoc(collection(db, "users", user.uid, "sets"), {
-      name: setName,
-      createdAt: new Date()
-    });
+  // 🔹 Guardar conjunto y todas sus cartas
+  saveBtn.addEventListener("click", async () => {
+    const user = auth.currentUser;
+    if (!user) return alert("Debes iniciar sesión");
 
-    // Crear cartas asociadas
-    const cardsContainer = document.querySelectorAll(".card-input");
-    for (let card of cardsContainer) {
-      const front = card.querySelector(".front").value;
-      const back = card.querySelector(".back").value;
+    const setName = document.getElementById("set-name").value.trim();
+    if (!setName) return alert("El conjunto necesita un nombre");
 
-      await addDoc(collection(db, "users", user.uid, "sets", setRef.id, "cards"), {
-        front,
-        back
+    try {
+      // Crear el conjunto
+      const setRef = await addDoc(collection(db, "users", user.uid, "sets"), {
+        name: setName,
+        createdAt: new Date()
       });
+
+      // Guardar todas las cartas
+      const cards = document.querySelectorAll(".card-input");
+      for (let card of cards) {
+        const front = card.querySelector(".front").value.trim();
+        const back = card.querySelector(".back").value.trim();
+
+        if (front && back) { // solo guardar si ambos tienen contenido
+          await addDoc(collection(db, "users", user.uid, "sets", setRef.id, "cards"), {
+            front,
+            back
+          });
+        }
+      }
+
+      alert("Conjunto creado con éxito 🎉");
+      window.location.href = "set.html";
+
+    } catch (err) {
+      console.error("Error guardando conjunto:", err);
+      alert("Hubo un error al guardar. Revisa la consola.");
     }
-
-    alert("Conjunto creado con éxito!");
-    window.location.href = "cards.html";
-
-  } catch (err) {
-    console.error("Error guardando conjunto:", err);
-  }
+  });
 });

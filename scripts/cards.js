@@ -1,47 +1,70 @@
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-firestore.js";
 
-const auth = getAuth();
-const db = getFirestore();
+    const auth = getAuth();
+    const db = getFirestore();
 
-async function loadSets() {
-  const user = auth.currentUser;
-  if (!user) return alert("Debes iniciar sesión");
+    const urlParams = new URLSearchParams(window.location.search);
+    const setId = urlParams.get("setId");
 
-  const setsSnap = await getDocs(collection(db, "users", user.uid, "sets"));
-  
-  const setsList = document.getElementById("sets-list");
-  setsList.innerHTML = "";
+    let cards = [];
+    let currentIndex = 0;
+    let showingFront = true;
 
-  setsSnap.forEach((setDoc) => {
-    const data = setDoc.data();
-    const li = document.createElement("li");
-    li.textContent = data.name;
-    li.addEventListener("click", () => loadCards(user.uid, setDoc.id));
-    setsList.appendChild(li);
-  });
-}
+    async function loadSet() {
+      const user = auth.currentUser;
+      if (!user) return alert("Debes iniciar sesión");
 
-async function loadCards(uid, setId) {
-  const cardsSnap = await getDocs(collection(db, "users", uid, "sets", setId, "cards"));
-  let cards = [];
-  
-  cardsSnap.forEach((cardDoc) => {
-    cards.push(cardDoc.data());
-  });
+      // Nombre del conjunto
+      const setDoc = await getDoc(doc(db, "users", user.uid, "sets", setId));
+      if (setDoc.exists()) {
+        document.getElementById("set-title").textContent = setDoc.data().name;
+      }
 
-  // Mostrar una carta aleatoria
-  if (cards.length > 0) {
-    showCard(cards[0]);
-  }
-}
+      // Cartas del conjunto
+      const cardsSnap = await getDocs(collection(db, "users", user.uid, "sets", setId, "cards"));
+      cards = [];
+      cardsSnap.forEach((docSnap) => {
+        cards.push(docSnap.data());
+      });
 
-function showCard(card) {
-  const cardElement = document.getElementById("card");
-  cardElement.textContent = card.front;
-  cardElement.onclick = () => {
-    cardElement.textContent = cardElement.textContent === card.front ? card.back : card.front;
-  };
-}
+      // Mezclar cartas aleatoriamente
+      cards = shuffle(cards);
 
-loadSets();
+      if (cards.length > 0) {
+        currentIndex = 0;
+        showCard();
+      } else {
+        document.getElementById("card").textContent = "Este conjunto no tiene cartas.";
+      }
+    }
+
+    function shuffle(array) {
+      return array.sort(() => Math.random() - 0.5);
+    }
+
+    function showCard() {
+      if (currentIndex >= cards.length) {
+        document.getElementById("card").textContent = "¡Has terminado todas las cartas! 🎉";
+        document.getElementById("next-card").style.display = "none";
+        return;
+      }
+
+      const card = cards[currentIndex];
+      const cardElement = document.getElementById("card");
+      cardElement.textContent = card.front;
+      showingFront = true;
+
+      // Toggle frente ↔ reverso
+      cardElement.onclick = () => {
+        cardElement.textContent = showingFront ? card.back : card.front;
+        showingFront = !showingFront;
+      };
+    }
+
+    document.getElementById("next-card").addEventListener("click", () => {
+      currentIndex++;
+      showCard();
+    });
+
+    loadSet();
