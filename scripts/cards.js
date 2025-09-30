@@ -51,22 +51,25 @@ function shuffle(array) {
 
 function showCard() {
   if (currentIndex >= cards.length) {
-    document.getElementById("card").textContent = "¡Has terminado todas las cartas! 🎉";
+    document.querySelector(".front").textContent = "¡Has terminado todas las cartas! 🎉";
+    document.querySelector(".back").textContent = "¡Has terminado todas las cartas! 🎉";
     document.getElementById("next-card").style.display = "none";
     return;
   }
 
   const card = cards[currentIndex];
-  const cardElement = document.getElementById("card");
-  cardElement.textContent = card.front;
-  showingFront = true;
+  document.querySelector(".front").textContent = card.front;
+  document.querySelector(".back").textContent = card.back;
 
-  // Toggle frente ↔ reverso
+  const cardElement = document.getElementById("card");
+  cardElement.classList.remove("flipped");
+
+  // Voltear solo con click
   cardElement.onclick = () => {
-    cardElement.textContent = showingFront ? card.back : card.front;
-    showingFront = !showingFront;
+    cardElement.classList.toggle("flipped");
   };
 }
+
 
 document.getElementById("next-card").addEventListener("click", () => {
   currentIndex++;

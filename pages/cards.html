@@ -7,11 +7,21 @@
   <title>Card Learn Liberty</title>
 </head>
 <body>
-  <div id="card" style="border:1px solid black; padding:20px; margin:20px; cursor:pointer; text-align:center;">
-    Loading cards...
-  </div>
-  <button id="next-card" style="margin-top:10px;">Next Card</button>
-  <a id="back-set" href="../pages/set.html">←  📋 Sets</a>
-    <script type="module" src="../scripts/cards.js"></script>
+  <main class="container">
+    <h2 id="set-title">Cargando título...</h2>
+
+    <div class="card-container">
+      <div class="card" id="card">
+        <div class="card-face front">Loading...</div>
+        <div class="card-face back">...</div>
+      </div>
+    </div>
+
+    <button id="next-card">Next Card</button>
+    <a id="back-set" class="btn" href="../pages/set.html">← 📋 Sets</a>
+    </div>
+  </main>
+
+  <script type="module" src="../scripts/cards.js"></script>
 </body>
 </html>

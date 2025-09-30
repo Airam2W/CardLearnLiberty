@@ -37,5 +37,12 @@ onAuthStateChanged(auth, (user) => {
     window.location.href = "../pages/menu.html";
   } else {
     console.log("No hay usuario activo");
+    //Cambiar el unico h2
+    const h2 = document.querySelector("h2");
+    h2.textContent = "Login in";
+    document.getElementById("google-login").style.visibility = "visible";
+    document.getElementById("mensaje").style.visibility = "visible";
+    const a = document.querySelector("a");
+    a.style.visibility = "visible";
   }
 });
