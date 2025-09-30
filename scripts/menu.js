@@ -9,10 +9,15 @@ const auth = getAuth(app);
 // Verificar si hay usuario logueado
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    // Si no hay sesión activa → redirigir a login.html
     window.location.href = "../pages/login.html";
   } else {
-    console.log("Usuario activo:", user.email);
+    console.log("Usuario activo:", user);
+
+    const userInfo = document.getElementById("user-info");
+    // Mostrar nombre si existe, si no correo
+    userInfo.textContent = user.displayName 
+      ? `Bienvenido, ${user.displayName}` 
+      : `Conectado como: ${user.email}`;
   }
 });
 

@@ -54,3 +54,9 @@ body {
 .btn:hover {
   background: #0056b3;
 }
+
+#user-info {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #444;
+}
