@@ -41,7 +41,7 @@ async function loadSets(user) {
 
     // Botón eliminar
     const delBtn = document.createElement("button");
-    delBtn.textContent = "🗑️ Delete";
+    delBtn.textContent = "Delete";
     delBtn.classList.add("delete-btn");
     delBtn.addEventListener("click", async (e) => {
       e.stopPropagation();
@@ -61,7 +61,7 @@ async function loadSets(user) {
 
     // Botón editar
     const editBtn = document.createElement("button");
-    editBtn.textContent = "✏️ Edit";
+    editBtn.textContent = "Edit";
     editBtn.classList.add("edit-btn");
     editBtn.addEventListener("click", (e) => {
       e.stopPropagation();

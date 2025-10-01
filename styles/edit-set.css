@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #eef2f7;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fefefe;
   margin: 0;
   padding: 20px;
   color: #333;
@@ -12,7 +12,7 @@ body {
   background: #fff;
   border-radius: 12px;
   padding: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   text-align: center;
 }
 
@@ -42,16 +42,18 @@ select, input[type="text"] {
 }
 
 .delete-card {
-  background: #e74c3c;
+  background: #ff3f29;
   color: #fff;
   border: none;
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;
+  transition: background 0.2s ease;
+  margin-left: 8px;
 }
 
 .delete-card:hover {
-  background: #c0392b;
+  background: #ff220a;
 }
 
 button {
@@ -63,6 +65,55 @@ button {
   font-size: 1em;
 }
 
-#add-card { background: #3498db; color: #fff; }
-#save-set { background: #2ecc71; color: #fff; }
-#back-sets { background: #7f8c8d; color: #fff; }
+#add-card {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 16px;
+  background: #00ff40;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#add-card:hover {
+  background: #00e239;
+}
+
+#save-set {
+  display: block;
+  margin: 20px auto;
+  padding: 8px 16px;
+  background: #3183ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#save-set:hover {
+  background: #1271ff;
+}
+
+
+#back-sets {
+  display: inline-block;
+  margin: 10px auto;
+  padding: 5px 10px;
+  font-size: 1em;
+  background-color: #000000;
+  border: 2px solid #000000;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#back-sets:hover {
+  background-color: #ffffff;
+  color: #000;
+  border: 2px solid #000000;
+}
+

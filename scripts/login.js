@@ -25,6 +25,7 @@ googleBtn.addEventListener("click", () => {
       window.location.href = "menu.html";
     })
     .catch((error) => {
+      mensaje.style.visibility = "visible";
       mensaje.textContent = "❌ Error: " + error.message;
       console.error(error);
     });
@@ -41,7 +42,6 @@ onAuthStateChanged(auth, (user) => {
     const h2 = document.querySelector("h2");
     h2.textContent = "Login in";
     document.getElementById("google-login").style.visibility = "visible";
-    document.getElementById("mensaje").style.visibility = "visible";
     const a = document.querySelector("a");
     a.style.visibility = "visible";
   }

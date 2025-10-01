@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fefefe;
   color: #333;
   margin: 0;
   height: 100vh;
@@ -42,7 +42,7 @@ body {
   height: 100%;
   backface-visibility: hidden;
   border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,15 +69,14 @@ body {
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 14px 28px;
+  padding: 10px 15px;
   font-size: 1.2em;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
 #next-card:hover {
-  background: #45a049;
-  transform: scale(1.05);
+  background: #3d9f42;
 }
 
 #next-card:disabled {
@@ -87,17 +86,19 @@ body {
 
 #back-set {
   text-decoration: none;
-  background: #007bff;
+  background: #000000;
   color: #fff;
-  padding: 12px 20px;
+  border: 1px solid #000000;
+  padding: 8px 15px;
   border-radius: 10px;
-  font-size: 1em;
+  font-size: 1.2em;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
 #back-set:hover {
-  background: #0056b3;
-  transform: scale(1.05);
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
 }
 
 #back-set:active {
@@ -108,9 +109,9 @@ body {
   text-decoration: none;
   background: #ff9800;
   color: #fff;
-  padding: 12px 20px;
+  padding: 8px 15px;
   border-radius: 10px;
-  font-size: 1em;
+  font-size: 1.2em;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 

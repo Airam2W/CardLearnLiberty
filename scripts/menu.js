@@ -16,8 +16,8 @@ onAuthStateChanged(auth, (user) => {
     const userInfo = document.getElementById("user-info");
     // Mostrar nombre si existe, si no correo
     userInfo.textContent = user.displayName 
-      ? `Bienvenido, ${user.displayName}` 
-      : `Conectado como: ${user.email}`;
+      ? `Welcome, ${user.displayName}` 
+      : `Connected: ${user.email}`;
   }
 });
 
