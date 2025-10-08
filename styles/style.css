@@ -42,3 +42,30 @@ a:hover {
   border: 2px solid #55a7ff;
   color: #fefefe;
 }
+
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 768px) {
+  .logo {
+    width: 70%;
+    margin-top: -50px;
+  }
+
+  a {
+    font-size: 1em;
+    padding: 8px 16px;
+    margin-top: -30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 60%;
+    margin-top: -20px;
+  }
+
+  a {
+    font-size: 0.9em;
+    padding: 6px 12px;
+    margin-top: -10px;
+  }
+}

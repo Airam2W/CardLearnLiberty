@@ -1,3 +1,5 @@
+@import url("../styles/aditional.css");
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #fefefe;
@@ -97,7 +99,6 @@ button {
   background: #1271ff;
 }
 
-
 #back-sets {
   display: inline-block;
   margin: 10px auto;
@@ -117,3 +118,55 @@ button {
   border: 2px solid #000000;
 }
 
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  select, input[type="text"] {
+    width: 100%;
+    font-size: 0.95em;
+  }
+
+  .card-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .delete-card {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+    width: 95%;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  button, #add-card, #save-set, #back-sets {
+    font-size: 0.9em;
+    padding: 8px 12px;
+    width: 100%;
+  }
+
+  .card-input {
+    gap: 5px;
+  }
+
+  input[type="text"], select {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+}

@@ -1,3 +1,5 @@
+@import url("../styles/aditional.css");
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #fefefe;
@@ -121,3 +123,53 @@ body {
 
 
 
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    height: 200px;
+    font-size: 18px;
+  }
+
+  .card-container {
+    height: 280px;
+  }
+
+  .card-face {
+    font-size: 1.2em;
+    padding: 15px;
+  }
+
+  #next-card,
+  #back-set,
+  #again {
+    font-size: 1em;
+    padding: 8px 12px;
+    width: 90%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    height: 180px;
+    font-size: 16px;
+  }
+
+  .card-container {
+    height: 250px;
+  }
+
+  .card-face {
+    font-size: 1em;
+    padding: 10px;
+  }
+
+  #next-card,
+  #back-set,
+  #again {
+    font-size: 0.9em;
+    padding: 7px 10px;
+  }
+}

@@ -1,3 +1,5 @@
+@import url("../styles/aditional.css");
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #fefefe;
@@ -89,4 +91,54 @@ h2 {
   background-color: #ffffff;
   color: #000;
   border: 2px solid #000000;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  #set-name {
+    width: 95%;
+    font-size: 0.95em;
+  }
+
+  #cards-container {
+    max-width: 90%;
+  }
+
+  .card-input {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .card-input input {
+    width: 100%;
+    font-size: 0.95em;
+  }
+
+  #save-set, #add-card, #back-menu {
+    width: 100%;
+    font-size: 0.95em;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 18px;
+  }
+
+  #set-name {
+    width: 100%;
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  .card-input input {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  #save-set, #add-card, #back-menu {
+    font-size: 0.9em;
+    padding: 8px;
+  }
 }

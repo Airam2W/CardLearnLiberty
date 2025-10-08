@@ -1,3 +1,5 @@
+@import url("../styles/aditional.css");
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #fefefe;
@@ -123,4 +125,75 @@ h2 {
   background-color: #ffffff;
   color: #000;
   border: 2px solid #000000;
+}
+
+/* ------------------------------
+   Media Queries para responsividad
+--------------------------------*/
+
+/* Celulares (pantallas pequeñas) */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  #sets-list {
+    max-width: 100%;
+  }
+
+  .set-item {
+    flex-direction: column; /* Botones abajo del nombre */
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .set-name {
+    font-size: 1em;
+    margin-bottom: 8px;
+    text-align: left;
+  }
+
+  .delete-btn,
+  .edit-btn {
+    width: 100%;        /* Botones ocupan todo el ancho */
+    margin: 4px 0;
+    padding: 10px;
+    font-size: 0.95em;
+  }
+
+  #card {
+    max-width: 100%;
+    font-size: 1.2rem;
+    padding: 20px;
+  }
+
+  #back-menu {
+    width: 100%;
+    font-size: 1em;
+    padding: 10px;
+  }
+}
+
+/* Tablets en vertical */
+@media (min-width: 601px) and (max-width: 900px) {
+  #sets-list {
+    max-width: 90%;
+  }
+
+  .set-item {
+    padding: 10px;
+  }
+
+  .set-name {
+    font-size: 1.1em;
+  }
+
+  #card {
+    max-width: 90%;
+    font-size: 1.3rem;
+  }
 }

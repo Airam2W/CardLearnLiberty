@@ -77,3 +77,73 @@ img{
   color: #555;
   visibility: hidden;
 }
+
+/* ------------------------------
+   Media Queries para responsividad
+--------------------------------*/
+
+/* Celulares (pantallas pequeñas) */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+  }
+
+  a {
+    display: block;
+    font-size: 1em;
+    padding: 10px;
+    margin: 10px auto;
+    visibility: visible; /* mostrar enlaces en móvil */
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    margin-top: 15px;
+    visibility: visible; /* mostrar botón en móvil */
+  }
+
+  img {
+    position: static;
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  #mensaje {
+    font-size: 0.9em;
+    margin-top: 20px;
+    text-align: center;
+    visibility: visible; /* mostrar mensajes en móvil */
+  }
+}
+
+/* Tablets (pantallas medianas) */
+@media (min-width: 601px) and (max-width: 900px) {
+  h2 {
+    font-size: 1.8em;
+  }
+
+  a {
+    font-size: 1.05em;
+    padding: 8px 12px;
+    visibility: visible;
+  }
+
+  button {
+    font-size: 1.05em;
+    padding: 10px 20px;
+    visibility: visible;
+  }
+
+  #mensaje {
+    font-size: 0.95em;
+    visibility: visible;
+  }
+}

@@ -75,3 +75,48 @@ body {
   color: #000;
   border: 2px solid #000000;
 }
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  .menu-container {
+    padding: 30px 40px;
+    width: 90%;
+  }
+
+  .menu-container h1 {
+    font-size: 28px;
+  }
+
+  .btn {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* ------------------------------
+   Media Queries para responsividad
+--------------------------------*/
+
+@media (max-width: 480px) {
+  .menu-container {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .menu-container h1 {
+    font-size: 22px;
+  }
+
+  .menu-buttons {
+    gap: 10px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  #user-info {
+    font-size: 14px;
+  }
+}
