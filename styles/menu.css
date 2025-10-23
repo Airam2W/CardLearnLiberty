@@ -84,12 +84,17 @@ body {
   }
 
   .menu-container h1 {
-    font-size: 28px;
+    font-size: 32px;
   }
 
   .btn {
     font-size: 15px;
     padding: 10px;
+  }
+
+  #user-info {
+    font-size: 15px;
+    margin-top: -10px;
   }
 }
 
@@ -104,7 +109,7 @@ body {
   }
 
   .menu-container h1 {
-    font-size: 22px;
+    font-size: 32px;
   }
 
   .menu-buttons {
@@ -118,5 +123,6 @@ body {
 
   #user-info {
     font-size: 14px;
+    margin-top: -10px;
   }
 }

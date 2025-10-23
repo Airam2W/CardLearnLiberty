@@ -1,15 +1,15 @@
-// Autoimporta el CSS si no está ya incluido
+// Autoimport CSS if not already included
 (function loadCustomAlertCSS() {
   const existing = document.querySelector('link[href$="customAlert.css"]');
   if (!existing) {
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "customAlert.css"; // <-- asegúrate que esté en la misma carpeta
+    link.href = "customAlert.css";
     document.head.appendChild(link);
   }
 })();
 
-// ========= CUSTOM ALERT =========
+//Custom Alert
 export function customAlert(message, type = "info") {
   let container = document.getElementById("notification-container");
   if (!container) {
@@ -30,7 +30,7 @@ export function customAlert(message, type = "info") {
   }, 5000);
 }
 
-// ========= CUSTOM CONFIRM =========
+//Custom Confirm
 export async function customConfirm(message, action = null) {
   return new Promise((resolve) => {
     let container = document.getElementById("confirm-container");
@@ -59,10 +59,10 @@ export async function customConfirm(message, action = null) {
     yesBtn.onclick = async () => {
       container.classList.remove("visible");
 
-      // ✅ Valida: solo ejecuta si se confirma
+      //Validates: only executes if confirmed
       if (typeof action === "function") {
         try {
-          await action(); // Ejecuta el callback si lo hay
+          await action(); //Executes the callback if it exists
           resolve(true);
         } catch (err) {
           console.error("Error in confirmed action:", err);
